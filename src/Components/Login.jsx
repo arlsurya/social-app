@@ -1,12 +1,28 @@
 import React, { useState } from 'react'
 import '../Components/Login.css'
+import axios from  'axios'
 
 function Login() {
+
 
   // getting email from the user input
   const [email, setEmail] = useState('')
   // getting password from the user input
   const [password, setPassword] = useState('')
+
+  // ===============================================
+
+  // backend api url
+  const URL = 'http://127.0.0.1:3001/api/user/login'
+
+  // header configuration
+  const headers = {
+    'Content-Type': 'application/json'
+  }
+
+  // ===============================================
+
+
 
   // when user hit login button
   const handleSubmit = () => {
@@ -15,6 +31,14 @@ function Login() {
       password: password
     }
     console.log(loginData)
+
+    
+  axios.post(URL,loginData,{headers}).then((response)=>{
+    console.log(response)
+  })
+  .catch((error)=>{
+    console.log(error)
+  })
   }
 
 
