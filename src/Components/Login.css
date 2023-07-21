@@ -38,6 +38,18 @@
     border-radius: 0.25rem;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   }
+
+  .btn{
+    margin-top: 10px;
+   
+  }
+
+  .loginBtn{
+    display: flex;
+    justify-content: center;
+  }
   
 
-.login-section {}
+  .main{
+    margin-left: 600px;
+  }
