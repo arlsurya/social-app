@@ -5,7 +5,6 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-<<<<<<< HEAD
     container: {
       center: 'true',
       padding: {
@@ -29,9 +28,6 @@ export default {
         '256': '64rem'
     },
     },
-=======
-    extend: {},
->>>>>>> 6824618f0a334697a3cb0bfc9b3b9dfdf392d000
   },
   plugins: [],
 }
