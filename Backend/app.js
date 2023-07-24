@@ -7,6 +7,8 @@ const app = express()
 const DB = require('./Core/db')
 DB()
 
+app.use(logger('dev'))
+
 const indexRoutes = require('./Routes/index')
 const apiRoutes = require('./Routes/api')
 
