@@ -23,6 +23,43 @@ module.exports = {
                 })
             }
 
+            
+        let user = await userModel.findOne({email:email})
+
+       if(!user){
+        return res.status(404).json({
+            statusCode: 404,
+            Code: 0,
+            message: "User Not Found With This Email"
+        })
+       }
+
+       let passwordMatch = await bcrypt.compare(password, user.password)
+       console.log(passwordMatch)
+
+       if(!passwordMatch){
+        return res.status(401).json({
+            statusCode: 401,
+            Code: 0,
+            message: "Email or Password does not match"
+        })
+       }
+
+       const payload = {
+        id:user._id
+       }
+
+       const authToken = jwt.sign(payload,Constant.JWTSECRETKEY,{expiresIn:'3hrs'}) 
+       
+       return res.status(200).json({
+            statusCode:200,
+            Code:1,
+            token: `Bearer ${authToken}`,
+            message: "User Login Successfully"
+       })
+
+
+
         } catch (error) {
             console.log(error)
             return res.status(500).json({
@@ -32,6 +69,7 @@ module.exports = {
             })
 
         }
+
 
     },
 
