@@ -4,6 +4,7 @@ import Login from './Components/Login';
 import Home from './Components/Home';
 import LandingPage from './Components/LandingPage';
 import Register from './Components/Register';
+import ForgotPassword from './Components/ForgotPassword';
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
           <Route path="/" element={<LandingPage/>}/>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/forgotpassword" element={<Login />} />
+          <Route path="/forgotpassword" element={<ForgotPassword />} />
           <Route path="/home" element={<Home />} />
       
         </Routes>

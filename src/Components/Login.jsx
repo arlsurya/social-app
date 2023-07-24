@@ -79,7 +79,7 @@ function Login() {
                 
                 <div className='flex justify-between items-center gap-20 text-sm mt-8'>
                <Link to='/register' >  <p className=' text-gray-500 cursor-pointer hover:text-gray-900'>Don't have an account?</p> </Link>  
-                    <p  className=' text-gray-500 cursor-pointer hover:text-gray-900'>Forgot Password?</p>
+                <Link to='/forgotpassword'><p  className=' text-gray-500 cursor-pointer hover:text-gray-900'>Forgot Password?</p></Link>
                  </div>
                  
 
