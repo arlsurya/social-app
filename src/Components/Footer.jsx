@@ -3,24 +3,24 @@ import React from 'react'
 function Footer() {
   return (
     <>
-    <footer className="bg-orange-500">
-      <div className='flex flex-row'>
-        <div className=' basis-1/4'>
-          <h3>LOGO</h3>
-          <p>We work with a passion of taking challenges and creating new ones in advertising sector.</p>
-          <button className=''>About Us</button>
+    <footer className="p-10 bg-slate-600">
+      <div className='container mx-auto flex flex-row text-amber-100 px-10'>
+        <div className=' basis-1/4 px-3'>
+          <h3 className=' text-3xl py-3'>LOGO</h3>
+          <p className='py-3'>We work with a passion of taking challenges and creating new ones in advertising sector.</p>
+          <button className=' rounded-full bg-amber-800 px-3 py-1'>About Us</button>
         </div>
-        <div className='basis-1/4'>
-          <h3>Official Info</h3>
-          <ul>
-            <li>
+        <div className='basis-1/4 px-3'>
+          <h3 className="font-semibold text-3xl">Official Info:</h3>
+          <ul className='py-5'>
+            <li className='text-amber-50'>
               Baneshwor, Kathmandu, Bagmati, Nepal
             </li>
-            <li>
+            <li className='text-amber-50'>
               +977 9801034111
             </li>
-            <h5>Open Hours:</h5>
-            <ul>
+            <h5 className='pt-5 font-normal text-xl'>Open Hours:</h5>
+            <ul className='text-amber-50'>
               <li>
                 Mon - Sat: 8pm - 5pm,
               </li>
@@ -29,6 +29,9 @@ function Footer() {
               </li>
             </ul>
           </ul>
+        </div>
+        <div>
+          {/* Write some code here in future */}
         </div>
       </div>
     </footer>
