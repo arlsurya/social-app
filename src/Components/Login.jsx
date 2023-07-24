@@ -14,7 +14,7 @@ function Login() {
   // ===============================================
 
   // backend api url
-  const URL = 'http://127.0.0.1:3001/api/user/login'
+  const URL = 'http://127.0.0.1:1010/api/user/login'
 
   // header configuration
   const headers = {
@@ -69,12 +69,12 @@ function Login() {
                 
                 <div className='pt-4 flex flex-col gap-4 justify-center items-center w-4/5'>
                    
-                        <input  className='border-0 w-full ps-2 h-8' type="email" placeholder='Email' />   
+                        <input onChange={(e)=>setEmail(e.target.value)}  className='border-0 w-full ps-2 h-8' type="email" placeholder='Email' />   
                    
                   
-                        <input className='border-0 w-full ps-2 h-8' type="password" placeholder='Password' />
+                        <input onChange={(e)=>setPassword(e.target.value)} className='border-0 w-full ps-2 h-8' type="password" placeholder='Password' />
                    
-                    <button className='bg-blue-600 rounded-lg p-1 w-20 text-white mt-4 font-semibold tracking-wide hover:bg-blue-100 hover:text-gray-600 uppercase'>Log in</button>
+                    <button onClick={handleSubmit} className='bg-blue-600 rounded-lg p-1 w-20 text-white mt-4 font-semibold tracking-wide hover:bg-blue-100 hover:text-gray-600 uppercase'>Log in</button>
                 </div>
                 
                 <div className='flex justify-between items-center gap-20 text-sm mt-8'>
