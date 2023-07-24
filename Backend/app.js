@@ -4,6 +4,9 @@ const dotenv = require('./env')
 const cors = require('cors')
 const app = express()
 
+const DB = require('./Core/db')
+DB()
+
 const indexRoutes = require('./Routes/index')
 const apiRoutes = require('./Routes/api')
 
