@@ -43,21 +43,6 @@ function Login() {
 
 
   return (
-<<<<<<< HEAD
-    <div className="main">
-      <div className='container'>
-        <div className="login-title">Login</div>
-        <div className="login-section">
-          <label className='label' htmlFor="email">Email:</label><br />
-          {/* onChange event to to get user email input value */}
-          <input value={email} onChange={(e) => setEmail(e.target.value)} className='form-control' type="email" /><br />
-          <label className='label' htmlFor="password">Password:</label><br />
-          {/* onChange event to to get user password value */}
-          <input value={password} onChange={(e) => setPassword(e.target.value)} className='form-control' type="password" />
-          <div className="loginBtn">
-            {/* handleSubmit function defined on top */}
-            <button onClick={handleSubmit} className='btn'>Login</button>
-=======
     // <div className="main">
     //   <div className='container'>
     //     <div className="login-title">Login</div>
@@ -71,14 +56,10 @@ function Login() {
     //       <div className="loginBtn">
     //         {/* handleSubmit function defined on top */}
     //         <button onClick={handleSubmit} className='btn'>Login</button>
->>>>>>> c5290c25a5651b520c410038b7c7f4389cfb6551
 
     //       </div>
     //     </div>
 
-<<<<<<< HEAD
-      </div>
-=======
     //   </div>
     <div className=' bg-gradient-to-t from-cyan-500 to-blue-500 h-screen flex justify-center items-center'>
         <div className='w-4/5 rounded-xl bg-gray-100 flex justify-center items-center py-8 xl:w-1/4'>
@@ -103,7 +84,6 @@ function Login() {
 
             </div>
         </div>
->>>>>>> c5290c25a5651b520c410038b7c7f4389cfb6551
     </div>
   )
 }
