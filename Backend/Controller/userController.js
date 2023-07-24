@@ -1,3 +1,4 @@
+const userModel = require('../Model/userModel')
 const bcrypt = require('bcrypt')
 const saltRound = 10
 module.exports = {
@@ -74,9 +75,26 @@ module.exports = {
             })
           }
 
+          let userExist = await userModel.findOne({email:email})
+
+          if(userExist){
+            return res.status(401).json({
+                statusCode: 401,
+                Code: 0,
+                message: "Another User Already Exist With this Email"
+            })
+          }
 
           let hashPassword = await bcrypt.hash(password,saltRound)
           console.log(hashPassword)
+
+          req.body.password = hashPassword
+
+          console.log(req.body)
+
+          let user =  userModel(req.body)
+          user = await user.save()
+          res.send(user)
 
 
         } catch (error) {
