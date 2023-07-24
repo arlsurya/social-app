@@ -9,7 +9,6 @@ function LandingPage() {
         <Link to='/login'><h3 className='uppercase text-xl font-semibold tracking-wider cursor cursor-pointer'>Go To Login Page</h3></Link>
             
 
-
         </div>
     </div>
 </div>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import '../Components/Login.css'
 import axios from  'axios'
+import { Link } from 'react-router-dom'
 
 function Login() {
 
@@ -77,7 +78,7 @@ function Login() {
                 </div>
                 
                 <div className='flex justify-between items-center gap-20 text-sm mt-8'>
-                    <p className=' text-gray-500 cursor-pointer hover:text-gray-900'>Don't have an account?</p>
+               <Link to='/register' >  <p className=' text-gray-500 cursor-pointer hover:text-gray-900'>Don't have an account?</p> </Link>  
                     <p  className=' text-gray-500 cursor-pointer hover:text-gray-900'>Forgot Password?</p>
                  </div>
                  
