@@ -1,6 +1,8 @@
 const userModel = require('../Model/userModel')
 const bcrypt = require('bcrypt')
 const saltRound = 10
+const jwt = require('jsonwebtoken')
+const Constant = require('../Constant')
 module.exports = {
     userLogin: async (req, res) => {
         try {
@@ -94,7 +96,23 @@ module.exports = {
 
           let user =  userModel(req.body)
           user = await user.save()
-          res.send(user)
+
+          
+          delete user.password
+
+          let payload = {
+            id: user._id
+          }
+
+          let authToken = jwt.sign(payload,Constant.JWTSECRETKEY,{expiresIn:'3hrs'})
+
+          return res.status(200).json({
+            statusCode: 200,
+            Code: 1 ,
+            message: "User Successfully Registered",
+            token :`Bearer ${authToken}`,
+            data : user
+        })
 
 
         } catch (error) {
