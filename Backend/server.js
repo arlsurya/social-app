@@ -1,9 +1,6 @@
 const app = require('./app')
 
 
-
-
-
-app.listen(7001,()=>{
-    console.log('app is running on port 7001')
+app.listen(process.env.PORT,()=>{
+    console.log(`Server is running on ${process.env.HOST}:${process.env.PORT}`)
 })
