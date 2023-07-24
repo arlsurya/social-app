@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import '../Components/Login.css'
 import axios from  'axios'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -21,6 +22,7 @@ function Login() {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false)
 
+  const navigate = useNavigate()
 
 
   // ===============================================
@@ -59,6 +61,7 @@ function Login() {
       toast.success(`${response.data.message}`, {
         position: 'top-right',
       });
+      navigate('/home')
 
       setIsLoggedIn(true)
 
