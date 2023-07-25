@@ -1,13 +1,59 @@
 import React, { useState } from 'react'
 import userphoto from '../assets/image/userphoto.jpg'
-
+import axios from  'axios'
 function Home() {
 
         const [message,setMessage] = useState('')
+
+        
+  // ===============================================
+
+  // backend api url
+  const URL = 'http://127.0.0.1:1010/api/user/chat'
+
+  // header configuration
+  const headers = {
+    'Content-Type': 'application/json'
+  }
         
         const handleSubmit = ()=>{
-            
+
+
+            const token = localStorage.getItem('authToken')
           
+            const payload = {
+                message: message,
+                token: token
+            }
+            console.log(payload)
+          
+            axios.post(URL,payload,{headers}).then((response)=>{
+
+                if(response.data.Code === 0){
+            
+                  toast.error(`${response.data.message}`, {
+                    position: 'top-right',
+                  });
+            
+                }else if(response.data.Code === 1){
+                    console.log(response)
+            
+                  toast.success(`${response.data.message}`, {
+                    position: 'top-right',
+                  });
+            
+                }
+            
+  
+            
+              })
+              .catch((error)=>{
+                console.log(error)
+              })
+       
+
+
+
         }
 
     return (

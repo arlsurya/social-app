@@ -59,7 +59,6 @@ function Login() {
       });
 
     }else if(response.data.Code === 1){
-      console.log(response.data.token)
 
       let token = response.data.token
 
@@ -68,7 +67,7 @@ function Login() {
 
       localStorage.setItem('authToken',token)
 
-      setToken = token;
+      setToken(token)
   
       toast.success(`${response.data.message}`, {
         position: 'top-right',
