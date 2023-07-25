@@ -1,4 +1,5 @@
 const userModel = require('../Model/userModel')
+const chatModel = require('../Model/chatModel')
 const bcrypt = require('bcrypt')
 const saltRound = 10
 const jwt = require('jsonwebtoken')
@@ -162,5 +163,81 @@ module.exports = {
             })
 
         }
+    },
+    userChat: async(req,res)=>{
+
+        try {
+
+            let {message} = req.body;
+            let authData = req.authData
+            userId = authData.id
+          
+            req.body.userId = userId
+
+
+            if(!message){
+                return res.status(500).json({
+                    statusCode: 500,
+                    Code: 0,
+                    message: "Message field should not blank"
+                })
+            }
+
+            // save user message to database
+            let updateChat = chatModel(req.body)
+            updateChat = await updateChat.save()
+
+            let getAllChat = await chatModel.aggregate([
+                { $match: {} },
+              
+                {
+                  $lookup: {
+                    from: 'users',
+                    localField: 'userId',
+                    foreignField: '_id',
+                    as: 'userDetails'
+                  }
+                },
+              
+                {
+                  $unwind: '$userDetails'
+                },
+              
+                {
+                  $project: {
+                    message: 1,
+                    fullName: '$userDetails.fullName',
+                    email: '$userDetails.email',
+                    createdAt: 1,
+                  }
+                }
+              ]);
+
+
+              return res.status(200).json({
+                statusCode:200,
+                message: "All Chat list",
+                data: getAllChat
+              })
+        
+            
+
+
+
+
+            
+           
+
+            
+        } catch (error) {
+            console.log(error)
+            return res.status(500).json({
+                statusCode: 500,
+                Code: 0,
+                message: "Internal Server Error"
+            })
+            
+        }
+
     }
 }
