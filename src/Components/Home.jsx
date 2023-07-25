@@ -1,7 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import userphoto from '../assets/image/userphoto.jpg'
 
 function Home() {
+
+        const [message,setMessage] = useState('')
+        
+        const handleSubmit = ()=>{
+            
+          
+        }
+
     return (
         <>
             <div className='bg-gradient-to-t from-cyan-500 to-blue-500 w-full h-screen flex justify-center items-center px-8'>
@@ -37,8 +45,8 @@ function Home() {
 
                     <div className='w-full h-14 bg-gray-300 items-end mt-72 border-2'>
                         <div className='w-full h-full flex flex-row items-center gap-2'>
-                            <input type="text" className='w-full border-0 h-10 ps-2' placeholder='Ping your message' />
-                           <button className='p-2 bg-blue-700 text-white rounded-xl hover:bg-blue-500'>Ping</button>
+                            <input onChange={(e)=>setMessage(e.target.value)} type="text" className='w-full border-0 h-10 ps-2' placeholder='Ping your message' />
+                           <button onClick={handleSubmit} className='p-2 bg-blue-700 text-white rounded-xl hover:bg-blue-500'>Ping</button>
                         </div>
                     </div>
                 </div>
