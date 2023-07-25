@@ -162,5 +162,33 @@ module.exports = {
             })
 
         }
+    },
+    userChat: async(req,res)=>{
+        try {
+            let {chat} = req.body;
+
+            if(!chat){
+                return res.status(500).json({
+                    statusCode: 500,
+                    Code: 0,
+                    message: "Message field should not blank"
+                })
+            }
+
+
+            
+           
+
+            
+        } catch (error) {
+            console.log(error)
+            return res.status(500).json({
+                statusCode: 500,
+                Code: 0,
+                message: "Internal Server Error"
+            })
+            
+        }
+
     }
 }
