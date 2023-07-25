@@ -1,17 +1,4 @@
 import React from 'react'
-<<<<<<< HEAD
-
-
-function Header() {
-  return (
-    <>
-       
-    </>
-    
-  )
-}
-
-=======
 import "../Components/Header1.css"
 function Header() {
   return (
@@ -26,5 +13,4 @@ function Header() {
   )
 }
  
->>>>>>> b83e711dc5e1bcddd282614681d422a21df2e62f
 export default Header
