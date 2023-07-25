@@ -5,6 +5,7 @@ import Home from './Components/Home';
 import LandingPage from './Components/LandingPage';
 import Register from './Components/Register';
 import ForgotPassword from './Components/ForgotPassword';
+import Profile from './Components/Profile';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/forgotpassword" element={<ForgotPassword />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/profile" element={<Profile />} />
       
         </Routes>
       </div>
