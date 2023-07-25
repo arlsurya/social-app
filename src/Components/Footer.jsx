@@ -30,8 +30,8 @@ function Footer() {
             </ul>
           </ul>
         </div>
-        <div>
-          {/* Write some code here in future */}
+        <div className='basis-1/4'>
+          <h3>Hello</h3>
         </div>
       </div>
     </footer>
