@@ -2,6 +2,13 @@ import React from 'react'
 
 function Footer() {
   return (
+<<<<<<< HEAD
+    <div className='text-sm text-gray-900'>Copyright @socialapp 2023</div>
+  )
+}
+
+export default Footer
+=======
     <>
     <footer className="bg-orange-500">
       <div className='flex flex-row'>
@@ -37,3 +44,4 @@ function Footer() {
 }
 
 export default Footer;
+>>>>>>> b83e711dc5e1bcddd282614681d422a21df2e62f
