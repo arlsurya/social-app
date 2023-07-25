@@ -176,7 +176,7 @@ module.exports = {
 
 
             if(!message){
-                return res.status(500).json({
+                return res.status(200).json({
                     statusCode: 500,
                     Code: 0,
                     message: "Message field should not blank"
@@ -220,14 +220,6 @@ module.exports = {
                 message: "All Chat list",
                 data: getAllChat
               })
-        
-            
-
-
-
-
-            
-           
 
             
         } catch (error) {
@@ -240,5 +232,52 @@ module.exports = {
             
         }
 
+    },
+    getUserChat: async(req,res)=>{
+      try {
+        let getAllChat = await chatModel.aggregate([
+          { $match: {} },
+        
+          {
+            $lookup: {
+              from: 'users',
+              localField: 'userId',
+              foreignField: '_id',
+              as: 'userDetails'
+            }
+          },
+        
+          {
+            $unwind: '$userDetails'
+          },
+        
+          {
+            $project: {
+              message: 1,
+              fullName: '$userDetails.fullName',
+              email: '$userDetails.email',
+              createdAt: 1,
+            }
+          }
+        ]);
+
+
+        return res.status(200).json({
+          statusCode:200,
+          Code:1,
+          message: "All Chat list",
+          data: getAllChat
+        })
+
+        
+      } catch (error) {
+        console.log(error)
+        return res.status(500).json({
+          statusCode: 500,
+          Code: 0,
+          message: "Internal Server Error"
+      })
+        
+      }
     }
 }
