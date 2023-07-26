@@ -36,11 +36,25 @@ function Home() {
                 console.log(error)
             })
 
+  
+            // auto refresh message
+            setInterval(() => {
+              axios.post(URL2, payload, { headers }).then((response) => {
 
+                setChatMessages(response.data)
+             
+              
+            })
+                .catch((error) => {
+                    console.log(error)
+                })
+    
+            }, 3000);
 
     }, []);
 
     const handleSubmit = () => {
+      
 
         console.log(chatMessage)
 
@@ -74,7 +88,7 @@ function Home() {
 
             }
 
-
+        setMessage('')
         })
             .catch((error) => {
                 console.log(error)
@@ -86,9 +100,12 @@ function Home() {
     }
 
     return (
-        <>
-          <div className='bg-gradient-to-t from-cyan-500 to-blue-500 w-full h-screen flex justify-center items-center px-8'>
-            <div className='w-[500px] h-[700px] bg-gray-200 rounded-lg flex flex-col justify-between overflow-scroll'>
+      <>
+        <div className='bg-gradient-to-t from-cyan-500 to-blue-500 w-full h-screen flex justify-center items-center px-8'>
+          <div className='w-[500px] h-[700px] bg-gray-200 rounded-lg flex flex-col justify-between overflow-scroll'>
+            {chatMessage.length === 0 ? (
+              <div className="text-white text-center">Loading...</div>
+            ) : (
               <div>
                 {chatMessage.data.map((message) => (
                   <div key={message._id} className='flex flex-row items-center gap-10 p-8'>
@@ -104,18 +121,21 @@ function Home() {
                   </div>
                 ))}
               </div>
-              <div className='w-full h-14 bg-gray-300 items-end mt-72 border-2'>
-                <div className='w-full h-full flex flex-row items-center gap-2'>
-                  <input onChange={(e) => setMessage(e.target.value)} type="text" className='w-full border-0 h-10 ps-2' placeholder='Ping your message' />
-                  <button onClick={handleSubmit} className='p-2 bg-blue-700 text-white rounded-xl hover:bg-blue-500'>Ping</button>
-                  <ToastContainer position="top-right" />
-                  <div></div>
-                </div>
+            )}
+          
+            <div className='w-full h-14 bg-gray-300 items-end mt-72 border-2'>
+              <div className='w-full h-full flex flex-row items-center gap-2'>
+                <input onChange={(e) => setMessage(e.target.value)} type="text" value={message} className='w-full border-0 h-10 ps-2' placeholder='Ping your message' />
+                <button onClick={handleSubmit} className='p-2 bg-blue-700 text-white rounded-xl hover:bg-blue-500'>Send</button>
+                <ToastContainer position="top-right" />
+                <div></div>
               </div>
             </div>
           </div>
-        </>
-      );
+        </div>
+      </>
+    );
+    
 }
 
 export default Home
