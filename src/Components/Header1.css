@@ -1,15 +1,15 @@
-div{
+.div{
     background: #000;
     color: aliceblue;
     height: 50px;
 }
-ul{
+.ul{
 
     display: flex;
     /* text-align: center; */
     justify-content: center;
 }
-a{
+.a{
 font-size: 30px;
     padding: 50px;
 }
