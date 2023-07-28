@@ -4,7 +4,7 @@ function Footer() {
   return (
     <>
     <footer className="p-10 bg-slate-600">
-      <div className='container mx-auto flex flex-row text-amber-100 px-10'>
+      <div className='container mx-auto flex  text-amber-100 px-10 justify-between'>
         <div className=' basis-1/4 px-3'>
           <h3 className=' text-3xl py-3'>LOGO</h3>
           <p className='py-3'>We work with a passion of taking challenges and creating new ones in advertising sector.</p>
