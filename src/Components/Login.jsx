@@ -22,6 +22,8 @@ function Login() {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false)
 
+  const [token, setToken] = useState('')
+
   const navigate = useNavigate()
 
 
@@ -57,6 +59,15 @@ function Login() {
       });
 
     }else if(response.data.Code === 1){
+
+      let token = response.data.token
+
+      // split Bearer form token 
+      token = token.split(' ')[1]
+
+      localStorage.setItem('authToken',token)
+
+      setToken(token)
   
       toast.success(`${response.data.message}`, {
         position: 'top-right',
