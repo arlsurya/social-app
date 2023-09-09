@@ -1,12 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import userphoto from '../assets/image/userphoto.jpg'
 import { ToastContainer, toast } from 'react-toastify';
+import { io } from 'socket.io-client';
 import axios from 'axios'
-import 'react-toastify/dist/ReactToastify.css';
+// import { socket } from '../Components/socket';
+
+const URL = 'http://127.0.0.1:1010'
+
+export const socket = io(URL)
+
+
 function Home() {
 
     const [message, setMessage] = useState('')
     const [chatMessage, setChatMessages] = useState([])
+    const [isConnected, setIsConnected] = useState(socket.connected);
 
 
     // ===============================================
@@ -21,6 +29,11 @@ function Home() {
     }
 
     useEffect(() => {
+      // function onConnect() {
+      //   setIsConnected(true);
+      // }
+      // socket.on('connection', onConnect);
+
         const token = localStorage.getItem('authToken')
         const payload = {
             token: token

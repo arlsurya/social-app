@@ -18,7 +18,11 @@ app.use(express.json())
 // socket.io configuration
 const server = http.createServer(app);
 const { Server } = require("socket.io");
-const io = new Server(server);
+const io = new Server( server,{
+    cors: {
+      origin: "*"
+    }
+  });
 
 
 
