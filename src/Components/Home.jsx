@@ -38,18 +38,18 @@ function Home() {
 
   
             // auto refresh message
-            setInterval(() => {
-              axios.post(URL2, payload, { headers }).then((response) => {
+            // setInterval(() => {
+            //   axios.post(URL2, payload, { headers }).then((response) => {
 
-                setChatMessages(response.data)
+            //     setChatMessages(response.data)
              
               
-            })
-                .catch((error) => {
-                    console.log(error)
-                })
+            // })
+            //     .catch((error) => {
+            //         console.log(error)
+            //     })
     
-            }, 3000);
+            // }, 3000);
 
     }, []);
 
